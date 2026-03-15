@@ -2,14 +2,6 @@
 
 A collection of bash scripts for setting up an OpenVPN server with iptables rules to intercept and redirect iOS traffic for SSL pinning bypass during security research and penetration testing.
 
----
-
-## ⚠️ Disclaimer
-
-These tools are intended **for authorized security research, penetration testing, and educational purposes only**. Do not use on any device or network without explicit permission.
-
----
-
 ## 📁 Scripts
 
 ### 1. `openvpn-install.sh`
@@ -54,11 +46,16 @@ sudo bash iptables-setup.sh 10.8.0.1
 ## 🔧 Typical Setup Flow
 
 1. Run `openvpn-install.sh` to set up your VPN server
-2. Connect your iOS device to the VPN
-3. Run `iptables-setup.sh` with your VPN server IP to redirect traffic to your proxy
-4. Configure your proxy tool (e.g., Burp Suite) to listen on port `8080`
+2. Configure your proxy tool (e.g., Burp Suite) to listen on port `8080` with your VPN interface IP (e.g., `10.x.x.1`)
+   - In Burp Suite: **Proxy → Options → Interface IP → Request Handling → Enable Support for Invisible Proxying**
+3. Connect your iOS device to the VPN
+4. Run `iptables-setup.sh` with your iOS device's VPN client IP to redirect traffic to your proxy
+   ```
+   sudo bash iptables-setup.sh <iOS_VPN_CLIENT_IP>
+   # Example: sudo bash iptables-setup.sh 10.8.0.2
+   ```
 5. Install your proxy's CA certificate on the iOS device
-6. Use a Frida/objection script or similar to bypass SSL pinning on the target app
+   - Export CA from Burp Suite → transfer to device → **Settings → General → VPN & Device Management → Install**
 
 ---
 
@@ -70,7 +67,3 @@ sudo bash iptables-setup.sh 10.8.0.1
 - A proxy tool (Burp Suite, mitmproxy, etc.) listening on port `8080`
 
 ---
-
-## 📄 License
-
-MIT License — see [LICENSE](LICENSE) for details.
