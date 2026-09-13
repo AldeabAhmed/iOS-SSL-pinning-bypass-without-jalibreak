@@ -2,7 +2,7 @@
 
 This folder contains macOS-compatible scripts for SSL pinning bypass on iOS devices.
 
-## 🍎 macOS Support
+##  macOS Support
 
 ### Scripts Overview
 
@@ -116,7 +116,7 @@ sudo pfctl -s nat
 sudo pfctl -f /etc/pf.conf
 ```
 
-## 📱 iOS Device Setup
+## iOS Device Setup
 
 1. **Install Client Configuration**:
    - Transfer `.ovpn` file from `/usr/local/etc/openvpn/clients/` to iOS device
@@ -134,7 +134,7 @@ sudo pfctl -f /etc/pf.conf
    - Connect to the VPN
    - Browse to HTTPS sites to verify interception
 
-## 🔍 Troubleshooting
+## Troubleshooting
 
 ### Common Issues
 
@@ -180,13 +180,13 @@ sudo chmod +x /usr/local/etc/openvpn/*.sh
 - **Interface Names**: macOS uses `utun0` instead of `tun0` for VPN interfaces
 - **Certificate Management**: Always backup your CA certificates
 
-## 📚 Additional Resources
+## Additional Resources
 
 - [OpenVPN macOS Documentation](https://openvpn.net/community-resources/how-to/)
 - [macOS PF Firewall Guide](https://www.openbsd.org/faq/pf/)
 - [Burp Suite Proxy Configuration](https://portswigger.net/burp/documentation/desktop/getting-started)
 
-## 🤝 Contributing
+## Contributing
 
 For issues, improvements, or macOS-specific enhancements:
 1. Test thoroughly on macOS versions 10.15+
@@ -196,7 +196,7 @@ For issues, improvements, or macOS-specific enhancements:
 
 ---
 
-## 📋 Credits
+## Credits
 
 ### Original Project
 **Author**: Sahil H4ck4you  
